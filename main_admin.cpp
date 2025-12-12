@@ -1,4 +1,7 @@
 #include "main.h"
+#include "customer.h"
+#include "pakaian.h"
+using namespace std;
 
 void menuAdmin(){
     int option=-99;
