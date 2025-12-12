@@ -16,3 +16,7 @@ void insertCustomerLast(ListCustomer &LC, adrCustomer C){
 void insertCustomerSorted(ListCustomer &LC, adrCustomer C){
 
 }
+
+void showAllCustomer(ListCustomer LC){
+    
+}
