@@ -1,10 +1,11 @@
 #include "customer.h"
+#include "pakaian.h"
 #include <iostream>
 using namespace std;
 
 bool isEmptyCustomer(ListCustomer LC) {
     return (LC.first == nullptr);
-}   
+}
 void createListCustomer(ListCustomer &LC) {
     LC.first = nullptr;
     LC.last = nullptr;
@@ -14,7 +15,7 @@ adrCustomer createCustomer(infotypeCustomer x) {
     C->info = x;
     C->next = nullptr;
     C->prev = nullptr;
-    createListPakaian(C->child);  
+    createListPakaian(C->child);
     return C;
 }
 void insertCustomerFirst(ListCustomer &LC, adrCustomer C) {

@@ -1,3 +1,11 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+#include "pakaian.h"
+#include "customer.h"
+
+
 void menuUser(){
     int option=-99;
     while (option != 0) {

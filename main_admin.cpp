@@ -1,6 +1,8 @@
 #include "main.h"
 #include "customer.h"
 #include "pakaian.h"
+#include <iostream>
+
 using namespace std;
 
 void menuAdmin(){
@@ -32,53 +34,27 @@ void menuParent(){
     int option=-99;
     while (option != 0) {
         system("cls");
-<<<<<<< HEAD
         cout << "============ Menu Parent============ " << endl;
         cout << "|| 1. insert first          ||" << endl;
         cout << "|| 2. insert last           ||" << endl;
         cout << "|| .....dst                 ||" << endl;
         cout << "|| 0. back                  ||" << endl;
         cout << "============================== " << endl;
-=======
-        cout << "============ Menu Parent=============== " << endl;
-        cout << "|| 1. insert first                   ||" << endl;
-        cout << "|| 2. insert last                    ||" << endl;
-        cout << "|| 3. insert sorted                  ||" << endl;
-        cout << "|| 4. find customer                  ||" << endl;
-        cout << "|| 5. hapus customer pertama         ||" << endl;
-        cout << "|| 6. hapus customer terakhir        ||" << endl;
-        cout << "|| 7. hapus customer berdasarkan ID  ||" << endl;
-        cout << "|| 8. show all customer              ||" << endl;
-        cout << "|| 0. back                           ||" << endl;
-        cout << "======================================= " << endl;
->>>>>>> b9d841d7e4d6c2f3896e866e390164084800e73c
         cout << "Choose your option : ";
         cin >> option;
         switch(option) {
            case 1  :
               cout << "you choose option 1" << endl;
-<<<<<<< HEAD
               // write your code here
-=======
-              
->>>>>>> b9d841d7e4d6c2f3896e866e390164084800e73c
 
               break;
            case 2  :
               cout << "you choose option 2" << endl;
-<<<<<<< HEAD
               // write your code here
 
               break;
 
             // continue for another case here
-=======
-              
-
-              break;
-
-           
->>>>>>> b9d841d7e4d6c2f3896e866e390164084800e73c
 
         }
     }

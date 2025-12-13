@@ -1,4 +1,5 @@
 #include "customer.h"
+#include "pakaian.h"
 #include <iostream>
 using namespace std;
 
@@ -8,15 +9,15 @@ void deleteCustomerFirst(ListCustomer &LC, adrCustomer &C) {
         C = nullptr;
         cout << "List Kosong, tidak ada data yang dihapus." << endl;
     } else {
-        C = LC.first; 
-        
+        C = LC.first;
+
         if (LC.first == LC.last) {
             LC.first = nullptr;
             LC.last = nullptr;
         } else {
-            LC.first = LC.first->next; 
-            LC.first->prev = nullptr;  
-            C->next = nullptr;         
+            LC.first = LC.first->next;
+            LC.first->prev = nullptr;
+            C->next = nullptr;
         }
     }
 }
@@ -32,9 +33,9 @@ void deleteCustomerLast(ListCustomer &LC, adrCustomer &C) {
             LC.first = nullptr;
             LC.last = nullptr;
         } else {
-            LC.last = LC.last->prev; 
-            LC.last->next = nullptr; 
-            C->prev = nullptr;       
+            LC.last = LC.last->prev;
+            LC.last->next = nullptr;
+            C->prev = nullptr;
         }
     }
 }
@@ -59,6 +60,6 @@ void deleteCustomerByID(ListCustomer &LC, string id) {
             C->next = nullptr;
             C->prev = nullptr;
         }
-        
+
     }
 }

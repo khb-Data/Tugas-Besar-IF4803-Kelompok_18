@@ -2,6 +2,9 @@
 #define PAKAIAN_H
 #include <iostream>
 
+#include "customer.h"
+#include "pakaian.h"
+
 using namespace std;
 typedef string infotype;
 typedef struct Pakaian* adrPakaian;
@@ -38,6 +41,6 @@ adrPakaian findPakaian(ListPakaian LP, string id);
 
 
 void showAllPakaian(ListPakaian LP);
-void showAllPakaianUnique(ListCustomer LC); // versi unik semua customer
+void showAllPakaianUnique(ListPakaian LP);
 
 #endif
