@@ -1,6 +1,7 @@
 #include <iostream>
 #include "customer.h"
-
+#include "pakaian.h"
+#include "main.h"
 using namespace std;
 
 int main()
@@ -13,15 +14,15 @@ int main()
         cout << "|| 2. Study Case            ||" << endl;
         cout << "|| 0. exit                  ||" << endl;
         cout << "============================== " << endl;
-        cout << "Choose your option : ";
+        cout << "Pilihan anda : ";
         cin >> option;
         switch(option) {
            case 1  :
-              cout << "you choose option 1" << endl;
+              cout << "memilih pilihan 1" << endl;
               menuAdmin();
               break;
            case 2  :
-              cout << "you choose option 2" << endl;
+              cout << "memilih pilihan 2" << endl;
               menuUser();
               break;
 
