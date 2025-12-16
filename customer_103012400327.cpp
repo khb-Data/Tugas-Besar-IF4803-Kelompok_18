@@ -28,3 +28,13 @@ void insertCustomerFirst(ListCustomer &LC, adrCustomer C) {
         LC.first = C;
     }
 }
+
+adrCustomer findCustomer(ListCustomer LC, string id) {
+    adrCustomer P = LC.first;
+
+    while (P != nullptr && P->info.id != id) {
+        P = P->next;
+    }
+
+    return P;
+}

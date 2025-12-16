@@ -15,44 +15,48 @@ void insertCustomerLast(ListCustomer &LC, adrCustomer C){
 }
 
 void insertCustomerSorted(ListCustomer &LC, adrCustomer C){
-    if (LC.first == nullptr || C->idCustomer < LC.first->idCustomer) {
-        C->next = LC.first;
-        LC.first = C;
-        cout << "Customer dengan ID " << C->idCustomer << " berhasil ditambahkan di depan (terurut)." << endl;
-        return;
-    }
+    adrCustomer P;
 
-    adrCustomer p = LC.first;
-    adrCustomer q = LC.first->next;
-    
-    while (q != nullptr && C->idCustomer > q->idCustomer) {
-        p = q;
-        q = q->next;
+    if (LC.first == NULL) {
+        LC.first = C;
+        LC.last = C;
+        C->next = NULL;
+        C->prev = NULL;
+    }else if (C->info.nama < LC.first->info.nama) {
+        C->next = LC.first;
+        C->prev = NULL;
+        LC.first->prev = C;
+        LC.first = C;
+    }else if (C->info.nama > LC.last->info.nama) {
+        C->prev = LC.last;
+        C->next = NULL;
+        LC.last->next = C;
+        LC.last = C;
+    }else {
+        P = LC.first;
+        while (P != NULL && P->info.nama < C->info.nama) {
+            P = P->next;
+        }
+
+        C->next = P;
+        C->prev = P->prev;
+        P->prev->next = C;
+        P->prev = C;
     }
-    
-    C->next = q;
-    p->next = C;
-    
-    cout << "Customer dengan ID " << C->idCustomer << " berhasil ditambahkan secara terurut." << endl;
 }
 
 void showAllCustomer(ListCustomer LC){
-    if (LP.first == nullptr) {
-        cout << "--- List Pakaian KOSONG ---" << endl;
-        return;
-    }
+    adrCustomer P = LC.first;
 
-    adrPakaian p = LP.first;
-
-    cout << "\n=== Daftar Seluruh Pakaian ===" << endl;
-    
-    while (p != nullptr) {
-        cout << "Pakaian ID : " << p->idPakaian << endl;
-        cout << "  Jenis    : " << p->jenis << endl;
-        cout << "  Berat    : " << p->berat << " kg" << endl;
-        cout << "---------------------------------" << endl;
-        
-        p = p->next;
+    if (P == NULL) {
+        cout << "List customer kosong" << endl;
+    } else {
+        while (P != NULL) {
+            cout << "Customer" << endl;
+            cout << "----------------" << endl;
+            cout << "Nama : " << P->info.nama << endl;
+            cout << endl;
+            P = P->next;
+        }
     }
-    cout << "=== Akhir Daftar Pakaian ===\n" << endl;
 }

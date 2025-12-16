@@ -1,14 +1,14 @@
 #include "main.h"
-#include "customer.h"
-#include "pakaian.h"
 #include <iostream>
 
 using namespace std;
-liastCustomer LC;
-adrCustomer C;
-infotypeCustomer x;
-string id, nama;
+ListCustomer LC;
+ListPakaian LP;
+string id;
 
+adrCustomer C;
+adrPakaian P;
+infotypeCustomer x;
 
 void menuAdmin(){
     int option=-99;
@@ -24,16 +24,23 @@ void menuAdmin(){
         switch(option) {
            case 1  :
               cout << "memilih pilihan 1" << endl;
+              system("pause");
               menuParent();
               continue;
            case 2  :
               cout << "memilih pilihan 2" << endl;
+              system("pause");
               menuChild();
               continue;
+           case 0  :
+              cout << "Kembali ke menu utama" << endl;
+              break;
+           default :
+              cout << "Pilihan tidak valid!" << endl;
+              system("pause");
         }
     }
 }
-
 
 void menuParent(){
     int option=-99;
@@ -53,54 +60,70 @@ void menuParent(){
         switch(option) {
            case 1  :
               system("cls");
-              cout << "Masukkan nama customer: ";
-              cin >> nama;  
-              cout << "Masukkan id customer: ";
-              cin >> id;
-              C = createCustomer(x.nama, x.id);
-              insertCustomerFirst(LC,C);
-            system("cls");
+              cout << "=== Insert Customer First ===" << endl;
+              cout << "Nama: ";
+              cin >> x.nama;
+              cout << "ID: ";
+              cin >> x.id;
+              C = createCustomer(x);
+              insertCustomerFirst(LC, C);
+              cout << "Customer berhasil ditambahkan!" << endl;
+              system("pause");
               break;
            case 2  :
-             system("cls");
-              cout << "Masukkan nama customer: ";
-              cin >> nama;  
-              cout << "Masukkan id customer: ";
-              cin >> id;
-              C = createCustomer(nama, id);
-              insertCustomerLast(LC,C);
-            system("cls");
-              break;
-            case 3  :
-              cout << "memilih pilihan 3" << endl;
-              insertCustomerSorted(LC,C);
-
-              break;
-            case 4  :
               system("cls");
-                deleteCustomerFirst(LC,C);
-
+              cout << "=== Insert Customer Last ===" << endl;
+              cout << "Nama: ";
+              cin >> x.nama;
+              cout << "ID: ";
+              cin >> x.id;
+              C = createCustomer(x);
+              insertCustomerLast(LC, C);
+              cout << "Customer berhasil ditambahkan!" << endl;
+              system("pause");
               break;
-            case 5  :
-                system("cls");
-                deleteCustomerLast(LC,C);
-
-              break;
-            case 6  :
+           case 3  :
               system("cls");
-                showAllCustomer(LC);
-
+              cout << "=== Insert Customer Sorted ===" << endl;
+              cout << "Nama: ";
+              cin >> x.nama;
+              cout << "ID: ";
+              cin >> x.id;
+              C = createCustomer(x);
+              insertCustomerSorted(LC, C);
+              cout << "Customer berhasil ditambahkan!" << endl;
+              system("pause");
               break;
-            case 0  :
+           case 4  :
+              system("cls");
+              deleteCustomerFirst(LC, C);
+              system("pause");
+              break;
+           case 5  :
+              system("cls");
+              deleteCustomerLast(LC, C);
+              system("pause");
+              break;
+           case 6  :
+              system("cls");
+              showAllCustomer(LC);
+              system("pause");
+              break;
+           case 0  :
               cout << "kembali ke menu sebelumnya" << endl;
               break;
-
+           default :
+              cout << "Pilihan tidak valid!" << endl;
+              system("pause");
         }
     }
 }
 
 void menuChild(){
     int option=-99;
+    string idP;
+    string jenis;
+    int berat;
     while (option != 0) {
         system("cls");
         cout << "============ Menu Child==================================== " << endl;
@@ -115,33 +138,48 @@ void menuChild(){
         cin >> option;
         switch(option) {
            case 1  :
-              cout << "memilih pilihan 1" << endl;
-              insertPakaianFirst(LP,P);
-
+              system("cls");
+              cout << "=== Insert Pakaian First ===" << endl;
+              cout << "ID Pakaian : "; cin >> idP;
+              cout << "Jenis      : "; cin >> jenis;
+              cout << "Berat      : "; cin >> berat;
+              P = createPakaian(idP, jenis, berat);
+              insertPakaianFirst(LP, P);
+              cout << "Pakaian berhasil ditambahkan!" << endl;
+              system("pause");
               break;
            case 2  :
-              cout << "memilih pilihan 2" << endl;
-                insertPakaianLast(LP,P);    
-
+              system("cls");
+              cout << "=== Insert Pakaian Last ===" << endl;
+              cout << "ID Pakaian : "; cin >> idP;
+              cout << "Jenis      : "; cin >> jenis;
+              cout << "Berat      : "; cin >> berat;
+              P = createPakaian(idP, jenis, berat);
+              insertPakaianLast(LP, P);
+              cout << "Pakaian berhasil ditambahkan!" << endl;
+              system("pause");
               break;
-            case 3  :
-              cout << "memilih pilihan 3" << endl;
-                deletePakaianFirst(LP,P);
-
+           case 3  :
+              system("cls");
+              deletePakaianFirst(LP, P);
+              system("pause");
               break;
-            case 4  :
-              cout << "memilih pilihan 4" << endl;
-                deletePakaianLast(LP,P);
-
+           case 4  :
+              system("cls");
+              deletePakaianLast(LP, P);
+              system("pause");
               break;
-            case 5  :
-              cout << "memilih pilihan 5" << endl;
-                showAllPakaian(LP);
-
+           case 5  :
+              system("cls");
+              showAllPakaian(LP);
+              system("pause");
               break;
            case 0  :
               cout << "kembali ke menu sebelumnya" << endl;
               break;
+           default :
+              cout << "Pilihan tidak valid!" << endl;
+              system("pause");
         }
     }
 }

@@ -25,3 +25,16 @@ void insertPakaianFirst(ListPakaian &LP, adrPakaian P) {
     P->next = LP.first;
     LP.first = P;
 }
+void insertPakaianLast(ListPakaian &LP, adrPakaian p) {
+    if (LP.first == nullptr) {
+        LP.first = p;
+    } else {
+        adrPakaian q = LP.first;
+        while (q->next != nullptr) {
+            q = q->next;
+        }
+        q->next = p;
+    }
+    p->next = nullptr;
+}
+

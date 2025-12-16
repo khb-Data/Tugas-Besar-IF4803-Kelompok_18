@@ -64,55 +64,29 @@ void deletePakaianLast(ListPakaian &LP, adrPakaian &P){
 void deletePakaianByID(ListPakaian &LP, string id){
     adrPakaian current, prec;
 
-    // 1. Cari elemen yang akan dihapus
     current = findPakaian(LP, id);
 
     if (current == nullptr) {
         cout << "Pakaian dengan ID " << id << " TIDAK DITEMUKAN." << endl;
-        P = nullptr;
         return;
     }
 
-    // Node ditemukan, simpan alamatnya di P
-    P = current;
-
-    // 2. Kasus A: Elemen yang akan dihapus adalah elemen pertama
+    // Jika elemen pertama
     if (current == LP.first) {
-        deletePakaianFirst(LP, P);
-        // Pesan deleteFirst sudah menangani output
+        adrPakaian temp;
+        deletePakaianFirst(LP, temp);
         return;
     }
 
-    // 3. Kasus B: Elemen yang akan dihapus berada di tengah atau di akhir
-
-    // Cari Predecessor (node sebelum 'current')
+    // Cari predecessor
     prec = LP.first;
     while (prec->next != current) {
         prec = prec->next;
     }
 
-    // Hubungkan Predecessor ke elemen setelah 'current'
     prec->next = current->next;
-
-    // 4. Putuskan hubungan node yang dihapus
     current->next = nullptr;
 
     cout << "Pakaian dengan ID " << id << " berhasil dihapus." << endl;
 }
 
-
-adrPakaian findPakaian(ListPakaian LP, string id){
-    adrPakaian p = LP.first;
-
-    // Telusuri list
-    while (p != nullptr) {
-        if (p->idPakaian == id) {
-            // Ditemukan, kembalikan alamatnya
-            return p;
-        }
-        p = p->next;
-    }
-
-    // Tidak ditemukan
-    return nullptr;
-}

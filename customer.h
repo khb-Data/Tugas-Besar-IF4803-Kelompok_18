@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
+#include "pakaian.h"  // Include pakaian.h di sini
 
-#include "pakaian.h"
+using namespace std;
 
 typedef struct Customer *adrCustomer;
 
@@ -19,7 +19,7 @@ struct Customer {
     infotypeCustomer info;
     adrCustomer next;
     adrCustomer prev;
-    ListPakaian child;  
+    ListPakaian child;
 };
 
 struct ListCustomer {
@@ -27,28 +27,24 @@ struct ListCustomer {
     adrCustomer last;
 };
 
-
+// Fungsi-fungsi Customer
 bool isEmptyCustomer(ListCustomer LC);
-
-
 void createListCustomer(ListCustomer &LC);
-
-
 adrCustomer createCustomer(infotypeCustomer x);
-
 
 void insertCustomerFirst(ListCustomer &LC, adrCustomer C);
 void insertCustomerLast(ListCustomer &LC, adrCustomer C);
 void insertCustomerSorted(ListCustomer &LC, adrCustomer C);
 
-
 adrCustomer findCustomer(ListCustomer LC, string id);
-
 
 void deleteCustomerFirst(ListCustomer &LC, adrCustomer &C);
 void deleteCustomerLast(ListCustomer &LC, adrCustomer &C);
 void deleteCustomerByID(ListCustomer &LC, string id);
 
 void showAllCustomer(ListCustomer LC);
+
+// Pindahkan deklarasi showAllPakaianUnique ke sini
+void showAllPakaianUnique(ListCustomer LC);
 
 #endif

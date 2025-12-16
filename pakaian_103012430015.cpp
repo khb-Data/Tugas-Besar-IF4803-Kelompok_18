@@ -4,13 +4,15 @@
 using namespace std;
 
 adrPakaian findPakaian(ListPakaian LP, string id){
-    adrPakaian = p;
-    p = LP.first;
-    while (p->info.id != id && p != nullptr){
+    adrPakaian p = LP.first;
+
+    while (p != nullptr && p->idPakaian != id) {
         p = p->next;
     }
-    return p;
+
+    return p; // ketemu → alamat, gak ketemu → nullptr
 }
+
 
 void showAllPakaian(ListPakaian LP){
     if (LP.first == nullptr) {
@@ -19,16 +21,18 @@ void showAllPakaian(ListPakaian LP){
     }
 
     adrPakaian p = LP.first;
+    int counter = 1;
 
     cout << "\n=== Daftar Seluruh Pakaian ===" << endl;
-    
+
     while (p != nullptr) {
-        cout << "Pakaian ID : " << p->idPakaian << endl;
-        cout << "  Jenis    : " << p->jenis << endl;
-        cout << "  Berat    : " << p->berat << " kg" << endl;
+        cout << counter << ". Pakaian [" << p->idPakaian << "]" << endl;
+        cout << "   Jenis: " << p->jenis << endl;
+        cout << "   Berat: " << p->berat << " kg" << endl;
         cout << "---------------------------------" << endl;
-        
+
         p = p->next;
+        counter++;
     }
     cout << "=== Akhir Daftar Pakaian ===\n" << endl;
 }
@@ -36,7 +40,7 @@ void showAllPakaian(ListPakaian LP){
 
 void showAllPakaianUnique(ListCustomer LC){
     if (LC.first == nullptr) {
-        cout << "--- List Customer KOSONG, tidak ada pakaian untuk ditampilkan ---" << endl;
+        cout << "--- List Customer KOSONG ---" << endl;
         return;
     }
 
@@ -44,25 +48,27 @@ void showAllPakaianUnique(ListCustomer LC){
     int customerCount = 1;
     int totalPakaian = 0;
 
-    cout << "\n=== Daftar Seluruh Pakaian dari Semua Customer ===" << endl;
+    cout << "\n=== Daftar Seluruh Pakaian dari Semua Customer ===\n";
 
     while (c != nullptr) {
-        cout << "--------------------------------------------------------" << endl;
-        cout << "CUSTOMER " << customerCount << ": ID " << c->idCustomer << endl;
-        cout << "--------------------------------------------------------" << endl;
+        cout << "------------------------------------------------\n";
+        cout << "CUSTOMER " << customerCount
+             << " | ID: " << c->info.id
+             << " | Nama: " << c->info.nama << endl;
+        cout << "------------------------------------------------\n";
 
-        ListPakaian customerLP = c->listPakaian;
+        ListPakaian customerLP = c->child;
 
         if (customerLP.first == nullptr) {
-            cout << "   (Customer ini tidak memiliki pakaian terdaftar)" << endl;
+            cout << "   (Customer ini tidak memiliki pakaian)\n";
         } else {
             adrPakaian p = customerLP.first;
             int pakaianCount = 1;
-            while (p != nullptr) {
-                cout << "   " << pakaianCount << ". Pakaian [" << p->idPakaian << "]" << endl;
-                cout << "      Jenis: " << p->jenis << endl;
-                cout << "      Berat: " << p->berat << " kg" << endl;
 
+            while (p != nullptr) {
+                cout << "   " << pakaianCount << ". ID Pakaian : " << p->idPakaian << endl;
+                cout << "      Jenis : " << p->jenis << endl;
+                cout << "      Berat : " << p->berat << " kg\n";
                 p = p->next;
                 pakaianCount++;
                 totalPakaian++;
@@ -73,6 +79,7 @@ void showAllPakaianUnique(ListCustomer LC){
         customerCount++;
     }
 
-    cout << "=== Total Seluruh Pakaian: " << totalPakaian << " item ===\n" << endl;
+    cout << "\n=== Total Seluruh Pakaian: " << totalPakaian << " item ===\n";
 }
+
 

@@ -6,6 +6,10 @@ using namespace std;
 
 int main()
 {
+    // PENTING: Inisialisasi list terlebih dahulu
+    createListCustomer(LC);
+    createListPakaian(LP);
+
     int option=-99;
     while (option != 0) {
         system("cls");
@@ -25,12 +29,14 @@ int main()
               cout << "memilih pilihan 2" << endl;
               menuUser();
               break;
-
+           case 0  :
+              cout << "Terima kasih! Program selesai." << endl;
+              break;
            default :
-              exit(1);
+              cout << "Pilihan tidak valid!" << endl;
+              system("pause");
         }
     }
-
 
     return 0;
 }
