@@ -30,6 +30,8 @@ void insertPakaianFirst(adrCustomer &C, adrPakaian P) {
     }
 }
 void insertPakaianLast(ListPakaian &LP, adrPakaian p) {
+    p->next = nullptr; 
+    
     if (LP.first == nullptr) {
         LP.first = p;
     } else {
@@ -39,6 +41,5 @@ void insertPakaianLast(ListPakaian &LP, adrPakaian p) {
         }
         q->next = p;
     }
-    p->next = nullptr;
 }
 

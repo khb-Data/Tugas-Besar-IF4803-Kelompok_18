@@ -10,7 +10,7 @@ adrPakaian findPakaian(ListPakaian LP, string id){
         p = p->next;
     }
 
-    return p; // ketemu → alamat, gak ketemu → nullptr
+    return p; 
 }
 
 

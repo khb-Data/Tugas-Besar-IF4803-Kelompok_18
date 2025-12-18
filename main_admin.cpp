@@ -123,6 +123,7 @@ void menuChild(){
     int option=-99;
     string idP;
     string jenis;
+    string idCustomer;
     int berat;
     while (option != 0) {
         system("cls");
@@ -139,23 +140,67 @@ void menuChild(){
         switch(option) {
            case 1  :
               system("cls");
-              cout << "=== Insert Pakaian First ===" << endl;
+             cout << "=== Insert Pakaian First ===" << endl;
+      
+              cout << "ID Customer : "; 
+              cin >> idCustomer;
+              
+              C = findCustomer(LC, idCustomer);
+              
+              if (C == nullptr) {
+                  cout << "Customer tidak ditemukan!" << endl;
+                  system("pause");
+                  break;
+              }
+              
               cout << "ID Pakaian : "; cin >> idP;
+              
+              if (findPakaian(C->child, idP) != nullptr) {
+                  cout << "ID Pakaian sudah ada di customer ini!" << endl;
+                  system("pause");
+                  break;
+              }
+              
               cout << "Jenis      : "; cin >> jenis;
               cout << "Berat      : "; cin >> berat;
+              
               P = createPakaian(idP, jenis, berat);
-              insertPakaianFirst(C, P);
+              insertPakaianFirst(C, P);  
+              
               cout << "Pakaian berhasil ditambahkan!" << endl;
               system("pause");
               break;
            case 2  :
               system("cls");
               cout << "=== Insert Pakaian Last ===" << endl;
+              
+              
+              cout << "ID Customer : "; 
+              cin >> idCustomer;
+              
+              C = findCustomer(LC, idCustomer);
+              
+              if (C == nullptr) {
+                  cout << "Customer tidak ditemukan!" << endl;
+                  system("pause");
+                  break;
+              }
+              
               cout << "ID Pakaian : "; cin >> idP;
+              
+              
+              if (findPakaian(C->child, idP) != nullptr) {
+                  cout << "ID Pakaian sudah ada!" << endl;
+                  system("pause");
+                  break;
+              }
+              
               cout << "Jenis      : "; cin >> jenis;
               cout << "Berat      : "; cin >> berat;
+              
               P = createPakaian(idP, jenis, berat);
-              insertPakaianLast(LP, P);
+              insertPakaianLast(C->child, P); 
+              
               cout << "Pakaian berhasil ditambahkan!" << endl;
               system("pause");
               break;
