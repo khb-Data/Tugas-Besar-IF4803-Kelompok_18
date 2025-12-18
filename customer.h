@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include "pakaian.h"  // Include pakaian.h di sini
+#include "pakaian.h"
 
 using namespace std;
 
@@ -27,14 +27,13 @@ struct ListCustomer {
     adrCustomer last;
 };
 
-// Fungsi-fungsi Customer
 bool isEmptyCustomer(ListCustomer LC);
 void createListCustomer(ListCustomer &LC);
 adrCustomer createCustomer(infotypeCustomer x);
 
 void insertCustomerFirst(ListCustomer &LC, adrCustomer C);
 void insertCustomerLast(ListCustomer &LC, adrCustomer C);
-void insertCustomerSorted(ListCustomer &LC, adrCustomer C);
+void insertCustomerAfter(ListCustomer &LC, adrCustomer prec, adrCustomer C);
 
 adrCustomer findCustomer(ListCustomer LC, string id);
 
@@ -44,7 +43,9 @@ void deleteCustomerByID(ListCustomer &LC, string id);
 
 void showAllCustomer(ListCustomer LC);
 
-// Pindahkan deklarasi showAllPakaianUnique ke sini
 void showAllPakaianUnique(ListCustomer LC);
+int hitungTotalCustomer(ListCustomer LC);
+int hitungPakaianCustomer(adrCustomer C);
+
 
 #endif

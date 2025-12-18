@@ -12,5 +12,6 @@ void menuAdmin();
 void menuParent();
 void menuChild();
 void menuUser();
+void inputDataDummy();
 
 #endif

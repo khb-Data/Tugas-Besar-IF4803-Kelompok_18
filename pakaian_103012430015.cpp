@@ -10,32 +10,9 @@ adrPakaian findPakaian(ListPakaian LP, string id){
         p = p->next;
     }
 
-    return p; 
+    return p;
 }
 
-
-void showAllPakaian(ListPakaian LP){
-    if (LP.first == nullptr) {
-        cout << "--- List Pakaian KOSONG ---" << endl;
-        return;
-    }
-
-    adrPakaian p = LP.first;
-    int counter = 1;
-
-    cout << "\n=== Daftar Seluruh Pakaian ===" << endl;
-
-    while (p != nullptr) {
-        cout << counter << ". Pakaian [" << p->idPakaian << "]" << endl;
-        cout << "   Jenis: " << p->jenis << endl;
-        cout << "   Berat: " << p->berat << " kg" << endl;
-        cout << "---------------------------------" << endl;
-
-        p = p->next;
-        counter++;
-    }
-    cout << "=== Akhir Daftar Pakaian ===\n" << endl;
-}
 
 
 void showAllPakaianUnique(ListCustomer LC){

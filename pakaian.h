@@ -8,7 +8,7 @@ using namespace std;
 // Forward declaration untuk menghindari circular dependency
 struct Customer;
 struct ListCustomer;
-
+typedef struct Customer* adrCustomer;
 typedef string infotype;
 typedef struct Pakaian* adrPakaian;
 
@@ -27,7 +27,7 @@ struct ListPakaian {
 void createListPakaian(ListPakaian &LP);
 adrPakaian createPakaian(string idP, string jenis, int berat);
 
-void insertPakaianFirst(ListPakaian &LP, adrPakaian P);
+void insertPakaianFirst(adrCustomer C, adrPakaian P);
 void insertPakaianLast(ListPakaian &LP, adrPakaian P);
 
 void deletePakaianFirst(ListPakaian &LP, adrPakaian &P);

@@ -80,13 +80,13 @@ void deletePakaianByID(ListPakaian &LP, string id){
 
     // Cari predecessor
     prec = LP.first;
-    while (prec->next != current) {
+    while (prec != nullptr && prec->next != current) {
         prec = prec->next;
     }
 
-    prec->next = current->next;
-    current->next = nullptr;
-
-    cout << "Pakaian dengan ID " << id << " berhasil dihapus." << endl;
+    if (prec != nullptr) {
+        prec->next = current->next;
+        current->next = nullptr;
+        cout << "Pakaian dengan ID " << id << " berhasil dihapus." << endl;
+    }
 }
-

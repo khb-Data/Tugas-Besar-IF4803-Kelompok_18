@@ -60,3 +60,17 @@ void showAllCustomer(ListCustomer LC){
         }
     }
 }
+
+int hitungPakaianCustomer(adrCustomer C) {
+    if (C == nullptr) return 0;
+
+    int count = 0;
+    adrPakaian P = C->child.first;
+
+    while (P != nullptr) {
+        count++;
+        P = P->next;
+    }
+
+    return count;
+}
