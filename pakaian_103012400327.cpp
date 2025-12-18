@@ -21,9 +21,13 @@ adrPakaian createPakaian(string idP, string jenis, int berat) {
     P->next = nullptr;
     return P;
 }
-void insertPakaianFirst(ListPakaian &LP, adrPakaian P) {
-    P->next = LP.first;
-    LP.first = P;
+void insertPakaianFirst(adrCustomer &C, adrPakaian P) {
+    if (C->child.first == nullptr) {
+        C->child.first = P;
+    } else {
+        P->next = C->child.first;
+        C->child.first = P;
+    }
 }
 void insertPakaianLast(ListPakaian &LP, adrPakaian p) {
     if (LP.first == nullptr) {

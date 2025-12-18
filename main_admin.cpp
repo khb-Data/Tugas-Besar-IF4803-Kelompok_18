@@ -144,7 +144,7 @@ void menuChild(){
               cout << "Jenis      : "; cin >> jenis;
               cout << "Berat      : "; cin >> berat;
               P = createPakaian(idP, jenis, berat);
-              insertPakaianFirst(LP, P);
+              insertPakaianFirst(C, P);
               cout << "Pakaian berhasil ditambahkan!" << endl;
               system("pause");
               break;
